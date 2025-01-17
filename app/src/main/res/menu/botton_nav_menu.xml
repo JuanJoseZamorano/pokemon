@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_capturados"
+        android:title="@string/captured"
+        android:tint="@null"
+        android:icon="@drawable/pokemon_capturado_ico"/>
+    <item
+        android:id="@+id/nav_pokedex"
+        android:title="Pokédex"
+        android:tint="@null"
+        android:icon="@drawable/pokedex_ico"/>
+    <item
+        android:id="@+id/nav_ajustes"
+        android:title="@string/ajustes"
+        android:tint="@null"
+        android:icon="@drawable/pokemon_ajustes_ico"/>
+</menu>
+    <!-- añadir iconos con android:icon="@drawable/icono"-->

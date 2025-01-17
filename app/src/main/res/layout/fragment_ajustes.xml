@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Switch para habilitar eliminación de Pokémon -->
+    <Switch
+        android:id="@+id/switchDel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/permisoseliminar"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Switch para cambiar idioma -->
+    <Switch
+        android:id="@+id/switchLan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cambiolenguaje"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Botón para mostrar Acerca de -->
+    <Button
+        android:id="@+id/btnAcercade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Botón para cerrar sesión -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cerrarsesion"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

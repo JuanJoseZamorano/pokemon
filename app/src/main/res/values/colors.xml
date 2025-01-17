@@ -1,0 +1,23 @@
+<resources>
+    <!-- Colores principales -->
+    <color name="color_primario">#FFCC00</color> <!-- Amarillo vibrante -->
+    <color name="color_secundario">#FF0000</color> <!-- Rojo vibrante -->
+
+    <!-- Fondo y superficies -->
+    <color name="color_fondo">#FFFFFF</color> <!-- Blanco puro -->
+    <color name="color_superficie">#F5F5F5</color> <!-- Gris claro -->
+
+    <!-- Textos -->
+    <color name="color_texto_primario">#000000</color> <!-- Negro -->
+    <color name="color_texto_secundario">#666666</color> <!-- Gris oscuro -->
+
+    <!-- Botones -->
+    <color name="color_boton">#3B4CCA</color> <!-- Azul intenso -->
+    <color name="color_texto_boton">#FFFFFF</color> <!-- Blanco -->
+
+    <!-- Complementarios -->
+    <color name="color_exito">#4CAF50</color> <!-- Verde éxito -->
+    <color name="color_error">#F44336</color> <!-- Rojo error -->
+    <color name="color_info">#2196F3</color> <!-- Azul información -->
+    <color name="color_advertencia">#FFC107</color> <!-- Amarillo advertencia -->
+</resources>
