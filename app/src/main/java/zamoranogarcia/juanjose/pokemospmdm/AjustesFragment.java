@@ -1,6 +1,7 @@
 package zamoranogarcia.juanjose.pokemospmdm;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -84,7 +85,7 @@ public class AjustesFragment extends Fragment {
 
         return view;
     }
-
+    // Metodo para mostrar le dialogo del about
     private void showAboutDialog() {
         new AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.about))
@@ -92,13 +93,16 @@ public class AjustesFragment extends Fragment {
                 .setPositiveButton(getString(R.string.cerrar), (dialog, which) -> dialog.dismiss())
                 .show();
     }
-
+    // metodo para hacer logout
     private void logout() {
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(getContext(), getString(R.string.sesioncerrada), Toast.LENGTH_SHORT).show();
+        // Redirigir al MainActivity (pantalla de login)
+        Intent intent = new Intent(requireContext(), MainActivity.class);
+        startActivity(intent);
         requireActivity().finish(); // Finaliza la actividad actual
     }
-
+    // Metodo para establecer el idioma y guardarlo en sharedpreference
     private void setLocale(String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
