@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,11 +64,15 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         // Cambia el fondo del elemento a un color rojo.
         // y deshabilita la capacidad de hacer clic en este elemento.
         if (isCaptured) {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_red_light));
+            // esta primera opcion, deshabilitaba el estilo completo del cardview
+            // holder.itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_red_light));
+            holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_red_light));  // edita la cardview a rojo  si esta capturado
             holder.itemView.setClickable(false); // Deshabilitar clic
         } else {
             // Estilo normal para los Pokémon no capturados
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+            // esta primera opcion, deshabilitaba el estilo completo del cardview
+            // holder.itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+            holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, android.R.color.white));  // edita la cardview a blanco si no esta capturado
             holder.itemView.setClickable(true); // Habilitar clic
 
             // Listener para capturar Pokémon
@@ -84,12 +89,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvPokemonName; // nombre del pokemos
         ImageView ivPokemonPhoto; // imagen del pokemon
+        CardView cardView; // cardview de la podedex
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // Vincula los elementos de la vista con las variables.
             tvPokemonName = itemView.findViewById(R.id.tvPokemonName);
             ivPokemonPhoto = itemView.findViewById(R.id.ivPokemonPhoto);
+            cardView = itemView.findViewById(R.id.cardViewPokedex);
         }
     }
 }

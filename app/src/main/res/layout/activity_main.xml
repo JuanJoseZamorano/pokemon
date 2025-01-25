@@ -46,6 +46,15 @@
         android:text="@string/login"
         style="@style/BotonPokemon"/>
 
+    <!-- Boton Especifico de Google -->
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleSignIn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center"
+        />
 
     <!-- Texto para ir a la pantalla de registro -->
     <TextView
