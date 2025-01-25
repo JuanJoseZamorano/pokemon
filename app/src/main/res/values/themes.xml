@@ -3,10 +3,10 @@
     <style name="Base.Theme.PokemosPMDM" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- Da error porque puede ser erroneo si la version de android es menos a la 12 -->
-        <item name="android:windowSplashScreenBackground">@color/color_fondo</item>
+        <item name="android:windowSplashScreenBackground">@color/color_superficie</item>
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/pokemonball</item>
         <item name="android:windowSplashScreenAnimationDuration">2000</item>
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/color_fondo</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/color_superficie</item>
     </style>
 
     <style name="Theme.PokemosPMDM" parent="Base.Theme.PokemosPMDM" />
