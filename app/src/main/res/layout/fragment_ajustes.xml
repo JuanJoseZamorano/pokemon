@@ -28,6 +28,7 @@
         android:id="@+id/btnAcercade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/BotonPokemon"
         android:text="@string/about"
         android:layout_marginBottom="16dp" />
 
@@ -36,6 +37,7 @@
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/BotonPokemon"
         android:text="@string/cerrarsesion"
         android:layout_marginBottom="16dp" />
 
