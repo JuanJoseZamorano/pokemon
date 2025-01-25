@@ -28,7 +28,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-    // google
+    // Declaramos las variables necesarias para el boton de Google Singin
     private SignInButton btnGoogleSignIn; // Botón para iniciar sesión con Google
     private GoogleSignInClient googleSignInClient; // Cliente de inicio de sesión de Google
     private static final int RC_SIGN_IN = 100; // Código para la actividad de inicio de sesión
@@ -43,16 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
-    // on start
-
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         // Configurar el diseño principal de la actividad
         setContentView(R.layout.activity_main);
 
-        // Google
+        // Configuracion del acceso con Google
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id)) // Reemplaza con el ID correcto
@@ -69,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
-// Vincular el botón y configurar su listener
+        // Vincular el botón y configurar su listener
         btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn2);
         btnGoogleSignIn.setOnClickListener(v -> initiateGoogleSignIn());
         // Inicializar Autentificacion de Firebase
@@ -106,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
-    // google metodo
+    // Método para el acceso mediente el boton de Google
     private void initiateGoogleSignIn() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    // resultado de google
+    // Resultado de la consulta de google
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -123,28 +113,33 @@ public class MainActivity extends AppCompatActivity {
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+                Toast.makeText(this, getString(R.string.exitoaccesogoogle), Toast.LENGTH_SHORT).show();
             } catch (ApiException e) {
                 Log.w("GoogleSignIn", "Fallo en el inicio de sesión con Google", e);
-                Toast.makeText(this, "Error al iniciar sesión con Google", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.falloaccesogoogle), Toast.LENGTH_SHORT).show();
+
             }
         }
     }
-    // google
+    // Tratamiento de la respuesta de google en Firebase y acceso a la app
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        // Login exitoso
                         FirebaseUser user = mAuth.getCurrentUser();
-                        Toast.makeText(MainActivity.this, "Bienvenido " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.accesotoast) + user.getEmail(), Toast.LENGTH_SHORT).show();
 
                         // Redirigir al usuario a la siguiente pantalla
                         Intent intent = new Intent(MainActivity.this, TabsActivity.class);
                         startActivity(intent);
                         finish(); // Finalizar la actividad de login
                     } else {
-                        Toast.makeText(MainActivity.this, "Error al autenticar con Firebase", Toast.LENGTH_SHORT).show();
+                        // error en el login
+                        Log.e("LoginError", "Error: " + task.getException());
+                        Toast.makeText(MainActivity.this, getString(R.string.accesoerrortoast), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

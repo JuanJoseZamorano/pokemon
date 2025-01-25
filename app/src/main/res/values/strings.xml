@@ -46,4 +46,6 @@
     <string name="passcorto">La contraseña debe tener al emnos 6 caracteres</string>
     <string name="registroOK">Registro Exitoso</string>
     <string name="registroNOOK">Error en el registro :</string>
+    <string name="falloaccesogoogle">No se pudo acceder mediente google</string>
+    <string name="exitoaccesogoogle">Acceso correcto con Google</string>
 </resources>
