@@ -21,7 +21,7 @@ Esta aplicación está diseñada para gestionar Pokémon capturados y explorar u
 ### 1. **Autenticación**
 - Registro e inicio de sesión mediante correo electrónico y contraseña.
 - Cierre de sesión redirigiendo al usuario a la pantalla de inicio.
-- Autentificacion a traves de Google Sing in. <span style="color:red;">(por implementar por error)</span>
+- Autentificacion a traves de Google Sing in.
 
 ### 2. **Gestor de Pokémon Capturados**
 - Los Pokémon capturados se almacenan en Firebase Firestore.
